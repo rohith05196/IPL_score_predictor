@@ -68,7 +68,7 @@ IPL_SCORE_PREDICTOR/
 ## 🧠 Model Info
 
 - Model file: `ipl_model.pkl`
-- Dataset: `ipl.csv`
+- Dataset: `ipl.csv` - `Kaggle Dataset for IPL 2008 - 2021`
 - Model development and training details can be found in `score_predictor_IPL.ipynb`.
 
 ---
