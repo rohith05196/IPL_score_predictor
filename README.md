@@ -61,7 +61,7 @@ IPL_SCORE_PREDICTOR/
    ```
 
 5. **Open the app**  
-   Navigate to [http://127.0.0.1:5000](http://127.0.0.1:5000) and start predicting! 🎉
+   Navigate to [http://127.0.0.1:port](http://127.0.0.1:port) and start predicting! 🎉
 
 ---
 
