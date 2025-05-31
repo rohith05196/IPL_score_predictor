@@ -85,3 +85,17 @@ IPL_SCORE_PREDICTOR/
    - The website will predict scores achivable at the end of 20 overs :) . 
 
 ![Web App Screenshot](static/ss_application.png)
+
+
+## Future Scope
+
+- Utilize Differet ML algorithm 
+- Predition of cricket score is a general term, the factors that influence are many
+**TODO:**
+- More features for training
+   - Vennue plays an important role
+   - Toss is a factor as well
+   - Team (for example recently a team with experienced players perform well in Impoertant matches like playoffs etc)
+   - History / head to head records
+   - form of players (recent) - like 100s scored, wickets taken etc etc
+
