@@ -73,6 +73,15 @@ IPL_SCORE_PREDICTOR/
 
 ---
 
-## ✨ How the wesite looks
+## ✨ How the webite looks
+ - All you need to include
+   - Batting Team
+   - Bowling Team
+   - Current score
+   - Overs bowled
+   - Wickets down 
+   - Runs in last 5 overs (Just to see if scoring is accelerating)
+   - Wickets in last 5 Overs.
+   - The website will predict scores achivable at the end of 20 overs :) . 
 
-![Web App Screenshot](static/ss_app.png)
+![Web App Screenshot](static/ss_application.png)

@@ -51,8 +51,9 @@ def predict():
     prediction = model.predict(np.array([temp_arr]))
 
     score = int(prediction[0])
-
-    return render_template('index.html', prediction_text=f'{score}')
+    max_score = score+5
+    min_score = score-5
+    return render_template('index.html', prediction_text=f'{min_score} to {max_score} runs')
 
 
 if __name__ == "__main__":
