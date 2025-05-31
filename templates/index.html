@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IPL Score Prediction</title>
+<style>
+  :root {
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --text-color: #333;
+    --background-color: rgba(255, 255, 255, 0.95);
+    --section-background: #ffffffee;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background: url("{{ url_for('static', filename='rcb.webp') }}") no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+  }
+  .overlay {
+    background: rgba(0, 0, 0, 0.6);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .form-container {
+    background: var(--background-color);
+    max-width: 400px; /* Reduced width */
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 15px 20px; /* Reduced padding */
+    transition: transform 0.3s;
+  }
+  .form-container:hover {
+    transform: translateY(-3px);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 15px; /* Reduced margin */
+    font-size: 1.4rem; /* Slightly smaller heading */
+    color: var(--text-color);
+  }
+  section {
+    background: var(--section-background);
+    border-radius: 6px;
+    margin-bottom: 10px; /* Reduced margin */
+    padding: 10px 12px; /* Reduced padding */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: background 0.3s, transform 0.2s;
+  }
+  section:hover {
+    background: #f1f1f1;
+    transform: translateY(-1px);
+  }
+  label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  input[type="number"]:focus,
+  select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+    outline: none;
+  }
+  select {
+    appearance: none;
+    background: #fff url("data:image/svg+xml;utf8,<svg width='10' height='5' viewBox='0 0 10 5' xmlns='http://www.w3.org/2000/svg'><path d='M0 0 L5 5 L10 0' fill='%23666'/></svg>") no-repeat right 10px center;
+    background-size: 10px;
+    cursor: pointer;
+  }
+  button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+  h2 {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1rem;
+  }
+  p.error {
+    color: red;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    .form-container {
+      padding: 10px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="overlay">
+  <div class="form-container">
+    <h1>IPL Score Prediction</h1>
+
+    <form action="/predict" method="post">
+
+      <section>
+        <label for="batting-team">Batting Team:</label>
+        <select name="batting-team" id="batting-team" required>
+          <option value="" disabled selected>Select Batting Team</option>
+          <option>Chennai Super Kings</option>
+          <option>Delhi Capitals</option>
+          <option>Kolkata Knight Riders</option>
+          <option>Mumbai Indians</option>
+          <option>Punjab Kings</option>
+          <option>Rajasthan Royals</option>
+          <option>Royal Challengers Bengaluru</option>
+          <option>Sunrisers Hyderabad</option>
+        </select>
+      </section>
+
+      <section>
+        <label for="bowling-team">Bowling Team:</label>
+        <select name="bowling-team" id="bowling-team" required>
+          <option value="" disabled selected>Select Bowling Team</option>
+          <option>Chennai Super Kings</option>
+          <option>Delhi Capitals</option>
+          <option>Kolkata Knight Riders</option>
+          <option>Mumbai Indians</option>
+          <option>Punjab Kings</option>
+          <option>Rajasthan Royals</option>
+          <option>Royal Challengers Bengaluru</option>
+          <option>Sunrisers Hyderabad</option>
+        </select>
+      </section>
+
+      <section>
+        <label for="overs">Overs Completed:</label>
+        <input type="number" step="0.1" name="overs" id="overs" placeholder="e.g. 12.3" required>
+      </section>
+
+      <section>
+        <label for="runs">Current Runs:</label>
+        <input type="number" name="runs" id="runs" placeholder="e.g. 105" required>
+      </section>
+
+      <section>
+        <label for="wickets">Wickets:</label>
+        <input type="number" name="wickets" id="wickets" placeholder="e.g. 3" required>
+      </section>
+
+      <section>
+        <label for="runs-last-5">Runs in Last 5 Overs:</label>
+        <input type="number" name="runs-last-5" id="runs-last-5" placeholder="e.g. 40" required>
+      </section>
+
+      <section>
+        <label for="wickets-last-5">Wickets in Last 5 Overs:</label>
+        <input type="number" name="wickets-last-5" id="wickets-last-5" placeholder="e.g. 1" required>
+      </section>
+
+      <button type="submit">Predict Score</button>
+    </form>
+
+    {% if prediction_text %}
+      <h2>Predicted Score at the end of 20 overs: {{ prediction_text }} runs</h2>
+    {% endif %}
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('mousemove', (e) => {
+    const { clientX: x, clientY: y } = e;
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const offsetX = (x - centerX) * 0.01;
+    const offsetY = (y - centerY) * 0.01;
+    document.body.style.backgroundPosition = `calc(50% + ${offsetX}px) calc(50% + ${offsetY}px)`;
+  });
+  document.addEventListener('mouseleave', () => {
+    document.body.style.backgroundPosition = 'center center';
+  });
+</script>
+
+</body>
+</html>
