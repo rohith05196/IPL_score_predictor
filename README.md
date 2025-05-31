@@ -73,6 +73,6 @@ IPL_SCORE_PREDICTOR/
 
 ---
 
-## ✨ Screenshots
+## ✨ How the wesite looks
 
-![Web App Screenshot](images.jpeg)
+![Web App Screenshot](static/ss_app.png)
