@@ -89,7 +89,7 @@ IPL_SCORE_PREDICTOR/
 
 ## Future Scope
 
-- Utilize Differet ML algorithm 
+- Utilize Different ML algorithm 
 - Predition of cricket score is a general term, the factors that influence are many
 **TODO:**
 - More features for training
