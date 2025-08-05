@@ -1,7 +1,7 @@
 
 # 🏏 IPL Score Predictor
 
-A machine learning web application for predicting IPL (Indian Premier League) match scores! 🚀
+A machine learning web application for predicting IPL (Indian Premier League) match scores! 
 
 ---
 
@@ -24,7 +24,7 @@ IPL_SCORE_PREDICTOR/
 
 ---
 
-## ⚙️ Features
+## Features
 
 ✅ IPL Score Prediction  
 ✅ Interactive Web Interface  
@@ -33,7 +33,7 @@ IPL_SCORE_PREDICTOR/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Clone the repo**  
    ```
@@ -65,7 +65,7 @@ IPL_SCORE_PREDICTOR/
 
 ---
 
-## 🧠 Model Info
+## Model Info
 
 - Model file: `ipl_model.pkl`
 - Dataset: `ipl.csv` - `Kaggle Dataset for IPL 2008 - 2021`
@@ -73,7 +73,7 @@ IPL_SCORE_PREDICTOR/
 
 ---
 
-## ✨ How the webite looks
+## How the webite looks
  - All you need to include
    - Batting Team
    - Bowling Team
