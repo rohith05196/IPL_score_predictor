@@ -5,7 +5,7 @@ A machine learning web application for predicting IPL (Indian Premier League) ma
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 IPL_SCORE_PREDICTOR/
